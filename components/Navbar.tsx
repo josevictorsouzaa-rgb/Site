@@ -18,7 +18,7 @@ export const Navbar: React.FC = () => {
     navigate('/sair');
   };
 
-  // Se estivermos DENTRO da rota /admin, a navbar principal não aparece (o dashboard tem a dele)
+  // Se estivermos DENTRO da rota /admin, a navbar principal não aparece
   if (isAdminRoute) return null;
 
   // Determine where the logo should link to
@@ -57,7 +57,6 @@ export const Navbar: React.FC = () => {
                 <Link to="/novidades" className="text-sm font-medium text-blue-100 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg transition-all">Novidades</Link>
                 <Link to="/pedidos" className="text-sm font-medium text-blue-100 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg transition-all">Meus Pedidos</Link>
                 
-                {/* Link Visível apenas para Admins */}
                 {role === 'admin' && (
                    <Link to="/admin" className="text-sm font-bold text-yellow-400 hover:text-yellow-300 bg-yellow-400/10 border border-yellow-400/20 px-3 py-2 rounded-lg transition-all flex items-center gap-1">
                       <span className="material-symbols-outlined text-xs">admin_panel_settings</span>
@@ -110,4 +109,13 @@ export const Navbar: React.FC = () => {
               <>
                 <Link onClick={() => setMobileMenuOpen(false)} to="/catalogo" className="block py-3 px-4 rounded-lg text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white transition-colors">Catálogo de Peças</Link>
                 <Link onClick={() => setMobileMenuOpen(false)} to="/novidades" className="block py-3 px-4 rounded-lg text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white transition-colors">Novidades</Link>
-                <Link onClick={() => setMobileMenuOpen(false)} to="/ped
+                <Link onClick={() => setMobileMenuOpen(false)} to="/pedidos" className="block py-3 px-4 rounded-lg text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white transition-colors">Meus Pedidos</Link>
+              </>
+            )}
+            <Link onClick={() => setMobileMenuOpen(false)} to="/contato" className="block py-3 px-4 rounded-lg text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white transition-colors">Fale Conosco</Link>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+};
